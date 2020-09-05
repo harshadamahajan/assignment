@@ -1,0 +1,22 @@
+#question : Print the first ArmStrong number in the range of 1042000 to 702648265 and exit the as soon as you encounter the first armstrong number. Use while loop
+#solution :
+
+lower = 1042000
+upper = 702648265
+
+for Number in range(lower, upper + 1):
+   # order of number
+   order = len(str(Number))
+    
+   # initialize sum
+   sum = 0
+
+   temp = Number
+   while temp > 0:
+       digit = temp % 10
+       sum += digit ** order
+       temp //= 10
+
+   if Number == sum:
+       print(Number)
+       break
