@@ -1,0 +1,85 @@
+
+
+
+#Question 1 : for this challenge, create a bank account class that has two attributes:
+#owner_name
+#balance
+#and two methods
+#deposit
+#withdraw
+#As an added requirement, withdrawals may not exceed the available balance
+#Instantiate your class, make several deposites and withdrawals and test to make sure the account can't be overdrawn.  
+
+#Solution :
+
+class Bank_Account: 
+    def __init__(self, Owner_name): 
+        self.balance = 0
+        self.Owner_name = Owner_name
+        print(f"Hello!!! {self.Owner_name}  Welcome to the Deposit & Withdrawal Machine") 
+  
+    def deposit(self): 
+        amount=float(input("Enter amount to be Deposited: ")) 
+        self.balance += amount 
+        print("\n Amount Deposited:", amount) 
+  
+    def withdraw(self): 
+        amount = float(input("Enter amount to be Withdrawn: ")) 
+        if self.balance>=amount: 
+            self.balance-=amount 
+            print("\n You Withdrew:", amount) 
+        else: 
+            print("\n Insufficient balance  ") 
+  
+    def display(self): 
+        print("\n Net Available Balance=",self.balance) 
+     
+# creating an object of class 
+s = Bank_Account(input('Enter Your name')) 
+   
+# Calling functions with that class object 
+s.deposit() 
+s.withdraw() 
+s.display()
+
+
+#Question 2 : for this challenge, create a cone class that has two attributes:
+#R=radius,
+#h=height
+#and two method
+#volume = pi * r*r*(h/3)
+#surface area : base : pi*r*r, side : pi*r*(r**2+h**2)/2
+#Make only one class with functions as in where required import maths 
+
+#solution : 
+# Importing Math library for value Of PI 
+import math 
+pi = math.pi 
+  
+class Cone:
+    def __init__(self, r, h):
+       self.r = r
+       self.h = h
+       
+
+# Function to calculate Volume of Cone     
+    def volume(self): 
+        return (1 / 3) * pi * self.r**2  * self.h
+
+# Function To Calculate Surface Area of Cone 
+    def surfacearea(self): 
+        base = (pi * self.r **2)
+        side = (pi * self.r * math.sqrt((self.r**2) + (self.h**2)))
+        return (pi * self.r **2) + (pi * self.r * math.sqrt((self.r**2) + (self.h**2)))
+        
+    
+
+
+calc_volume = Cone(5,12)
+print(f"Volume Of Cone : {calc_volume.volume()}")
+
+calc_surface = Cone(5,12)
+print(f"Surface Area Of Cone : {calc_surface.surfacearea()}")
+
+
+
