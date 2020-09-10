@@ -1,0 +1,43 @@
+#Question 1 : Write a program to identify sub list [1,1,5] is there in the given list in the same order, if yes print 'it's a match' if no then print 'it's Gone' in function
+#example:
+#listy=[1,5,6,4,1,2,3,5]
+#listy=[1,5,6,4,1,2,3,6]
+#solutin :
+def find_list(nums):
+  for i in range(len(nums)-2):
+    if nums[i]==1 and nums[i+1]==1 and nums[i+2]==5:
+      return "It's match"
+    
+  return "It's gone"
+
+lst1 = [1,5,1,1,5,2,3,5]
+lst2 = [1,5,6,5,1,2,3,6]
+lst3 = [1,5,6,4,1,2,3,5]
+
+print(find_list(lst1))
+print(find_list(lst2))
+print(find_list(lst3))
+
+
+#Question 2 : Make a Function for Prime Numbers and use filter to filter out all the prime numbers from 1 - 2500
+
+def is_prime(num):
+  if num > 1:
+    for i in range(2,num):
+        if num % i == 0:
+            return False
+    return True
+
+result = filter(is_prime,range(1,2500))
+print("Prime number between 1 to 2500 : ",list(result))
+
+
+#Question 3 : Make a Lambda Function for capitalizing the whole sentence passed using arguments and Map all the sentence in the list, with the Lambda Function
+#["hey this is sai", "i am in Mumbai",...]
+#o/p --> 
+#["Hey This is sai", "I am in mumbai",...]
+#Solution :
+sentence = ['hey this is sai', 'i am in mumbai']
+
+capitalizing_sentence = list(map(lambda x : x.capitalize(),sentence))
+print(capitalizing_sentence)
