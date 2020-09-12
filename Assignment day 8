@@ -1,0 +1,44 @@
+
+#Question 1: Write a decorator function for your taking input for you any kind of function you want to build
+#for example : you make a fibonacci series function, in which your input range is been defined by the decorator programs input
+
+def decorator_function(any_function):
+  def wrapper_function(*args):
+    print("Fibonacci Series for the given input")
+    return any_function(*args)
+  return wrapper_function
+
+
+@decorator_function
+def fibonacci_sqe(n):
+  a = 0 # First number
+  b = 1 # Second number
+  if n == 1:
+    print(a)
+  elif n == 2:
+    print(a,b)
+  else:
+    print(a,b, end=" ")
+    for i in range(n-2):
+      c = a + b
+      a = b
+      b = c
+      print(b, end=" ")
+
+x = int(input("Enter number: ")) 
+print(fibonacci_sqe(x))
+
+#question 2 : for this challenge you to devlop a python program to open a file in read only and try writing something to it and handle the subsequent errors using Exception handling.
+#solution :
+
+try:
+  f = open("harshu.txt", 'r')
+  f.write("Hey, What's up guys?")
+
+except IOError:
+  print("Error: can\'t write data")
+
+else:
+  print("else block executed to close the file")
+  f.close()
+
