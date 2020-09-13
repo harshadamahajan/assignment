@@ -1,0 +1,64 @@
+Q1..
+
+def prime_number(number):
+  if number > 1:
+    for i in range(2, number):
+      if (number % i) == 0:
+        return f"Given {number} is not a prime number"
+        break
+      else:
+        return f"Given {number} is a prime number"
+  
+  
+
+num = int(7)
+print(prime_number(num))
+
+
+
+
+import check_prime_number
+
+check_prime_number.prime_number(7)
+
+
+
+%%writefile find_prime_number.py
+
+import unittest
+import check_prime_number
+
+class test_prime_number(unittest.TestCase):
+  def test_any_number(self):
+    any_number = int(7)
+    result = check_prime_number.prime_number(any_number)
+    self.assertEquals(result, "Given 7 is a prime number")
+
+  def testing_number(self):
+    any_num = int(11)
+    result = check_prime_number.prime_number(any_num)
+    self.assertEquals(result, "Given 11 is a prime number")
+
+if __name__ == "__main__":
+  unittest.main()
+
+
+
+Q2...
+
+def armstrong_number_generator(first, last):
+  for num in range(first, last + 1):
+   order = len(str(num))
+   sum = 0
+   temp = num
+   while temp > 0:
+       digit = temp % 10
+       sum += digit ** order
+       temp //= 10
+
+   if num == sum:
+       yield (num)
+
+Number = armstrong_number_generator(1,1000)
+print(list(Number))
+
